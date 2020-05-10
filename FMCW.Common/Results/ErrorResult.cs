@@ -8,11 +8,12 @@ namespace FMCW.Common.Results
         public string FullException { get; set; } = string.Empty;
         public string FriendlyErrorMessage { get; set; } = string.Empty;
 
+
         public static ErrorResult Build(Exception ex)
             => new ErrorResult
             {
-                ErrorMessage = ex?.Message,
-                FullException = ex?.ToString()
+                ErrorMessage = ex.Message,
+                FullException = ex.ToString()
             };
     }
 }

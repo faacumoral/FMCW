@@ -5,12 +5,21 @@ namespace FMCW.Common.Results
 {
     public class ListResult<T> : BaseResult<List<T>, ErrorResult>
     {
-        public static ListResult<T> Build(List<T> ok, Exception ex)
+        public static ListResult<T> Ok(List<T> ok)
             => new ListResult<T>
             {
-                ResultOK = ok,
-                ResultError = ErrorResult.Build(ex)
+                ResultOk = ok,
+                ResultOperation = ResultOperation.Ok,
+                Success = true
             };
+
+        public static ListResult<T> Error(Exception ex)
+           => new ListResult<T>
+           {
+               ResultOperation = ResultOperation.Error,
+               ResultError = ErrorResult.Build(ex),
+               Success = false
+           };
 
     }
 }
