@@ -13,7 +13,16 @@ namespace FMCW.Common.Results
             => new ErrorResult
             {
                 ErrorMessage = ex.Message,
-                FullException = ex.ToString()
+                FullException = ex.ToString(),
+                FriendlyErrorMessage = ex.Message
             };
+
+        public static ErrorResult Build(string ex)
+           => new ErrorResult
+           {
+               ErrorMessage = ex,
+               FullException = ex,
+               FriendlyErrorMessage = ex
+           };
     }
 }

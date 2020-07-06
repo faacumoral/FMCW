@@ -16,10 +16,7 @@
     <Content Include="Config\key">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Include="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +27,10 @@
   <ItemGroup>
     <ProjectReference Include="..\FMCW.Common\FMCW.Common.csproj" />
     <ProjectReference Include="..\FMCW.Seguridad.Encriptador\FMCW.Seguridad.Encriptador.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

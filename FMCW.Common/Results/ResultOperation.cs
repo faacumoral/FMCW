@@ -3,6 +3,7 @@
     public enum ResultOperation
     {
         Ok,
+        Unauthorized,
         Warning,
         Error
     }

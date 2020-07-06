@@ -12,8 +12,9 @@ namespace FMCW.Seguridad
         private static int _keySize = 256;
 
         private static string _hash = "SHA1";
-        private static string _salt = "xxxxxxxxxxxxxxxx";
-        private static string _vector = "xxxxxxxxxxxxxxxx";
+
+        private static string _salt = "XXXXXX"; // Rando
+        private static string _vector = "XXXXXX"; // Random
 
         #endregion
         public static string Encriptar(string value, string password)
