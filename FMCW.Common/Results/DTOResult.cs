@@ -28,5 +28,13 @@ namespace FMCW.Common.Results
                 ResultOperation = ResultOperation.Ok,
                 Success = true
             };
+
+        public static DTOResult<T> Error(string error)
+             => new DTOResult<T>
+             {
+                 ResultOperation = ResultOperation.Error,
+                 ResultError = ErrorResult.Build(error),
+                 Success = false
+             };
     }
 }
