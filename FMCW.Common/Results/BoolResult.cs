@@ -20,5 +20,21 @@ namespace FMCW.Common.Results
                Success = false
            };
 
+        public static BoolResult Error(string err)
+          => new BoolResult
+          {
+              ResultError = ErrorResult.Build(err),
+              ResultOperation = ResultOperation.Error,
+              Success = false
+          };
+
+        public static BoolResult Error(ErrorResult ex)
+         => new BoolResult
+         {
+             ResultError = ex,
+             ResultOperation = ResultOperation.Error,
+             Success = false
+         };
+
     }
 }

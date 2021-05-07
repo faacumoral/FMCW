@@ -13,8 +13,8 @@ namespace FMCW.Seguridad
 
         private static string _hash = "SHA1";
 
-        private static string _salt = "XXXXXX"; // Rando
-        private static string _vector = "XXXXXX"; // Random
+        private static string _salt = "aseweias38490a76"; // Rando
+        private static string _vector = "8947az44a5wlkwyt"; // Random
 
         #endregion
         public static string Encriptar(string value, string password)

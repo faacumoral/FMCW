@@ -21,6 +21,22 @@ namespace FMCW.Common.Results
                Success = false
            };
 
+        public static ListResult<T> Error(ErrorResult er)
+          => new ListResult<T>
+          {
+              ResultOperation = ResultOperation.Error,
+              ResultError = er,
+              Success = false
+          };
+
+        public static ListResult<T> Error(string ex)
+           => new ListResult<T>
+           {
+               ResultOperation = ResultOperation.Error,
+               ResultError = ErrorResult.Build(ex),
+               Success = false
+           };
+
         public static implicit operator ListResult<T>(List<T> t)
           => new ListResult<T>
           {

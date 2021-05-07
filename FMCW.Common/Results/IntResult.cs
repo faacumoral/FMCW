@@ -20,5 +20,13 @@ namespace FMCW.Common.Results
                Success = false
            };
 
+        public static IntResult Error(string ex)
+           => new IntResult
+           {
+               ResultError = ErrorResult.Build(ex),
+               ResultOperation = ResultOperation.Error,
+               Success = false
+           };
+
     }
 }

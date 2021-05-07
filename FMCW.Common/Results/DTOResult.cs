@@ -3,7 +3,7 @@
 namespace FMCW.Common.Results
 {
     public class DTOResult<T> : BaseResult<T, ErrorResult>, IBaseErrorResult
-        where T: BaseDTO
+        where T : BaseDTO
     {
         public static DTOResult<T> Ok(T ok)
             => new DTOResult<T>
@@ -21,6 +21,22 @@ namespace FMCW.Common.Results
                Success = false
            };
 
+        public static DTOResult<T> Error(ErrorResult er)
+        => new DTOResult<T>
+        {
+            ResultOperation = ResultOperation.Error,
+            ResultError = er,
+            Success = false
+        };
+
+        public static DTOResult<T> Error(string ex)
+        => new DTOResult<T>
+        {
+            ResultOperation = ResultOperation.Error,
+            ResultError = ErrorResult.Build(ex),
+            Success = false
+        };
+
         public static implicit operator DTOResult<T>(T t)
             => new DTOResult<T>
             {
@@ -28,13 +44,5 @@ namespace FMCW.Common.Results
                 ResultOperation = ResultOperation.Ok,
                 Success = true
             };
-
-        public static DTOResult<T> Error(string error)
-             => new DTOResult<T>
-             {
-                 ResultOperation = ResultOperation.Error,
-                 ResultError = ErrorResult.Build(error),
-                 Success = false
-             };
     }
 }
