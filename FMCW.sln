@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FMCW.Seguridad", "FMCW.Segu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FMCW.Seguridad.Encriptador", "FMCW.Seguridad.Encriptador\FMCW.Seguridad.Encriptador.csproj", "{C2E3BFE7-84FB-4E74-8EE3-7570595BAD94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMCW.WebCommon", "FMCW.WebCommon\FMCW.WebCommon.csproj", "{606BA8F6-89BD-4EFC-A7E6-C71FE8A5DF49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{C2E3BFE7-84FB-4E74-8EE3-7570595BAD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2E3BFE7-84FB-4E74-8EE3-7570595BAD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2E3BFE7-84FB-4E74-8EE3-7570595BAD94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{606BA8F6-89BD-4EFC-A7E6-C71FE8A5DF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{606BA8F6-89BD-4EFC-A7E6-C71FE8A5DF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{606BA8F6-89BD-4EFC-A7E6-C71FE8A5DF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{606BA8F6-89BD-4EFC-A7E6-C71FE8A5DF49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
