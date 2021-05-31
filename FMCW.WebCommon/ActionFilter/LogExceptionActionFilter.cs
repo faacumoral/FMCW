@@ -9,9 +9,9 @@ namespace FMCW.WebCommon.ActionFilter
 {
     public class LogExceptionActionFilter : IExceptionFilter
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<LogExceptionActionFilter> _logger;
 
-        public LogExceptionActionFilter(ILogger logger)
+        public LogExceptionActionFilter(ILogger<LogExceptionActionFilter> logger)
         {
             _logger = logger;
         }
