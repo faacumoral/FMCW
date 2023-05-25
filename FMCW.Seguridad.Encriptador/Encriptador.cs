@@ -13,20 +13,24 @@ namespace FMCW.Seguridad
 
         private static string _hash = "SHA1";
 
-        private static string _salt = "aseweias38490a76"; // Rando
-        private static string _vector = "8947az44a5wlkwyt"; // Random
-
         #endregion
-        public static string Encriptar(string value, string password)
+        public static string Encriptar(
+            string value, 
+            string password, 
+            string salt = "aseweias38490a76", 
+            string vector = "8947az44a5wlkwyt")
         {
-            return Encriptar<AesManaged>(value, password);
+            return Encriptar<AesManaged>(value, password, salt, vector);
         }
-        public static string Encriptar<T>(string value, string password)
+
+        public static string Encriptar<T>(string value, string password,
+                string salt = "aseweias38490a76",
+                string vector = "8947az44a5wlkwyt")
                 where T : SymmetricAlgorithm, new()
         {
 
-            byte[] vectorBytes = Encoding.ASCII.GetBytes(_vector);
-            byte[] saltBytes = Encoding.ASCII.GetBytes(_salt);
+            byte[] vectorBytes = Encoding.ASCII.GetBytes(vector);
+            byte[] saltBytes = Encoding.ASCII.GetBytes(salt);
             byte[] valueBytes = Encoding.UTF8.GetBytes(value);
 
             byte[] encrypted;
@@ -55,15 +59,19 @@ namespace FMCW.Seguridad
             return Convert.ToBase64String(encrypted);
         }
 
-        public static string Desencriptar(string value, string password)
+        public static string Desencriptar(string value, string password, 
+            string salt = "aseweias38490a76",
+            string vector = "8947az44a5wlkwyt")
         {
-            return Desencriptar<AesManaged>(value, password);
+            return Desencriptar<AesManaged>(value, password, salt, vector);
         }
 
-        public static string Desencriptar<T>(string value, string password) where T : SymmetricAlgorithm, new()
+        public static string Desencriptar<T>(string value, string password,
+            string salt = "aseweias38490a76",
+            string vector = "8947az44a5wlkwyt") where T : SymmetricAlgorithm, new()
         {
-            byte[] vectorBytes = Encoding.ASCII.GetBytes(_vector);
-            byte[] saltBytes = Encoding.ASCII.GetBytes(_salt);
+            byte[] vectorBytes = Encoding.ASCII.GetBytes(vector);
+            byte[] saltBytes = Encoding.ASCII.GetBytes(salt);
             byte[] valueBytes = Convert.FromBase64String(value);
 
             byte[] decrypted;
