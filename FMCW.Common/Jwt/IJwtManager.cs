@@ -4,7 +4,7 @@ namespace FMCW.Common.Jwt
 {
     public interface IJwtManager
     {
-        public JwtDTO GenerateToken(int idUsuario);
+        public JwtDTO GenerateToken(string userId);
         public IntResult ValidateToken(string token);
     }
 }

@@ -11,12 +11,13 @@ namespace FMCW.Common.Jwt
     {
         private readonly JwtConfiguration _jwtConfiguration;
 
+        private const string USER_ID_CLAIM = "UserId";
         public JwtManager(JwtConfiguration jwtConfiguration)
         {
             _jwtConfiguration = jwtConfiguration;
         }
 
-        public JwtDTO GenerateToken(int idUsuario)
+        public JwtDTO GenerateToken(string userId)
         {
             string issuer = _jwtConfiguration.Issuer;
             string audience = _jwtConfiguration.Audience;
@@ -31,7 +32,7 @@ namespace FMCW.Common.Jwt
 
             var _Claims = new[] {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("IdUsuario", idUsuario.ToString())
+                new Claim(USER_ID_CLAIM, userId)
             };
 
             var _Payload = new JwtPayload(
@@ -78,7 +79,7 @@ namespace FMCW.Common.Jwt
                 if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
                     return IntResult.Error("Invalid token");
 
-                var userId = int.Parse(principal.FindFirst("IdUsuario")?.Value ?? "-1");
+                var userId = int.Parse(principal.FindFirst(USER_ID_CLAIM)?.Value ?? "-1");
 
                 if (userId == -1)
                     return IntResult.Error("Missing claim");
